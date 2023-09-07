@@ -1,0 +1,12 @@
+{
+    "name": "theme-sample-id",
+    "displayName": "Theme Sample",
+    "icon": "./icon.png",
+    "version": "0.1.0",
+    "publisher": "Foo",
+    "repository": "https://github.com/foo/theme-sample",
+    "engines": {
+        "vscode": "^1.53.0"
+    },
+    "contributes": {}
+}
