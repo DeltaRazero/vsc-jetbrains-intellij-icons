@@ -1,0 +1,10 @@
+from icon_theme_builder.file_icon_theme import *
+
+icons = [
+
+    icon.FileIcon(
+        "/jetbrains/SlimIcons/icons/slim.svg",
+        file_extensions=["slim"],
+    ),
+
+]

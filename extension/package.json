@@ -1,0 +1,12 @@
+{
+    "name": "intellij-icons",
+    "displayName": "JetBrains IntelliJ Icons",
+    "icon": "./icon.png",
+    "version": "0.2.0",
+    "publisher": "DeltaRazero",
+    "repository": "https://github.com/deltarazero/vscode-intellij-icons",
+    "engines": {
+        "vscode": "^1.53.0"
+    },
+    "contributes": {}
+}
