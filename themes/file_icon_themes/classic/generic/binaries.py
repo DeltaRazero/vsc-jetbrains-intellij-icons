@@ -13,7 +13,7 @@ icons = [
     ),
 
     icon.FileIcon(
-        "/jetbrains/AllIcons/runConfigurations/application.svg",
+        "/jetbrains/AllIcons/runConfigurations/applet.svg",
         file_extensions=["exe", "x", "app"],
     ),
 

@@ -4,7 +4,7 @@ icons = [
 
     icon.FileIcon(
         "/jetbrains/ScalaIcons1/fileScala.svg",
-        file_extensions=["rlib"],
+        file_extensions=["sc", "scala"],
     ),
 
     # TODO: More...

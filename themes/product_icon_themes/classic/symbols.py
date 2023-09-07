@@ -83,7 +83,8 @@ icons = helper.all_as_colr_glyph([
 
     # TODO: Don't know which icon yet
     ProductIcon(
-        "/jetbrains/NetIcons128/Placeholder(Color).svg",
+        # "/jetbrains/NetIcons128/Placeholder(Color).svg",
+        "/jetbrains/DatabaseIcons/icons/string.svg",
         ["symbol-keyword"]
     ),
 
