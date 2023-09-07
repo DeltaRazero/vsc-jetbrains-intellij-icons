@@ -126,8 +126,8 @@ icons = helper.all_as_colr_glyph([
     # TODO: Don't know which icon yet
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/string_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/string.svg"),
         },
         ["symbol-keyword"]
     ),
