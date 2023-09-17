@@ -2,12 +2,14 @@
 
 class __:
 
+    import argparse
     import importlib.util
-    import pathlib as path
-    import sys
-    import shutil
     import json
     import os
+    import pathlib as path
+    import shutil
+    import sys
+    import traceback
 
     import deepmerge
 
@@ -40,7 +42,7 @@ def export_theme(py_file: __.path.Path) -> None:
         if var_name.startswith("_"): continue
         match var_value:
             case __.IconThemeBuilder():
-                var_value.export(DIST_FOLDER)
+                var_value.export(DIST_FOLDER, args.validate_only)
 
     return
 
@@ -91,17 +93,36 @@ def consolidate(extension_dir: __.path.Path, dist_folder: __.path.Path) -> None:
 
 # *****************************************************************************
 
-try:
-    if (TMP_FOLDER.exists()):
-        __.shutil.rmtree(TMP_FOLDER)
-    if (DIST_FOLDER.exists()):
-        __.shutil.rmtree(DIST_FOLDER)
-    DIST_FOLDER.mkdir()
+def main() -> int:
+    global args
 
-    process_theme_modules(THEMES_FOLDER)
-    consolidate(EXTENSION_DIR, DIST_FOLDER)
-except Exception as e:
-    if (DIST_FOLDER.exists()):
-        __.shutil.rmtree(DIST_FOLDER)
-    print("Making distribution aborted because of the following error:")
-    raise e
+    parser = __.argparse.ArgumentParser()
+    parser.add_argument("--validate-only", action="store_true")
+    args = parser.parse_args()
+
+    try:
+        if (TMP_FOLDER.exists()):
+            __.shutil.rmtree(TMP_FOLDER)
+        if (DIST_FOLDER.exists()):
+            __.shutil.rmtree(DIST_FOLDER)
+        DIST_FOLDER.mkdir()
+
+        process_theme_modules(THEMES_FOLDER)
+        if (args.validate_only):
+            if (DIST_FOLDER.exists()):
+                __.shutil.rmtree(DIST_FOLDER)
+        else:
+            consolidate(EXTENSION_DIR, DIST_FOLDER)
+    except:
+        if (DIST_FOLDER.exists()):
+            __.shutil.rmtree(DIST_FOLDER)
+        print("Making distribution aborted because of the following error:")
+        __.traceback.print_exc()
+        return -1
+
+    return 0
+
+# *****************************************************************************
+
+if __name__ == "__main__":
+    __.sys.exit(main())

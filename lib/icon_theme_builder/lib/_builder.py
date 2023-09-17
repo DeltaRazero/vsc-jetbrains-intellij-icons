@@ -2,11 +2,12 @@
 class __:
 
     import abc
-    import pathlib as path
-    import os
-    import importlib.util
-    import sys
     import dataclasses
+    import importlib.util
+    import os
+    import pathlib as path
+    import re
+    import sys
 
     from ._icon       import Icon
     from ._icon_theme import IconTheme
@@ -76,7 +77,7 @@ class IconThemeBuilder (__.abc.ABC):
         ...
 
 
-    def export(self, dist_dir: __.path.Path) -> None:
+    def export(self, dist_dir: __.path.Path, validate_only: bool=False) -> None:
         dist_dir.mkdir(exist_ok=True, parents=True)
 
         themes = self.on_export()
@@ -84,7 +85,7 @@ class IconThemeBuilder (__.abc.ABC):
             raise Exception("Expected at least one (1) theme!")
 
         for theme in themes:
-            theme.export(dist_dir)
+            theme.export(dist_dir, validate_only)
 
         return
 

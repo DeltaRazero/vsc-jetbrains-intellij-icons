@@ -10,6 +10,22 @@
             "problemMatcher": [],
             "presentation": {
               "focus": true,
+            },
+            "icon": {
+                "id": "rocket"
+            }
+
+        },
+        {
+            "label": "Validate distribution",
+            "type": "shell",
+            "command": "/usr/local/bin/python /usr/src/myapp/bin/make_dist.py --validate-only",
+            "problemMatcher": [],
+            "presentation": {
+              "focus": true,
+            },
+            "icon": {
+                "id": "issue-closed"
             }
         }
     ]

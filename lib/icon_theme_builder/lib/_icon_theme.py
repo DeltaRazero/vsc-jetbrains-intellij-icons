@@ -82,7 +82,7 @@ class IconTheme (__.abc.ABC):
         return
 
 
-    def export(self, dist_dir: __.path.Path):
+    def export(self, dist_dir: __.path.Path, validate_only: bool):
 
         theme_dist_dir = (dist_dir / self.theme_id).resolve()
         theme_dist_dir.mkdir(exist_ok=True)
@@ -94,7 +94,8 @@ class IconTheme (__.abc.ABC):
             if (exporter is None or not exporter.has_icons()):
                 continue
             self.on_exporter(exporter)
-            exporter.consolidate(theme_dist_dir)
+            if (not validate_only):
+                exporter.consolidate(theme_dist_dir)
 
         self._package_json_partial["contributes"] = __.deepmerge.always_merger.merge(
             self._package_json_partial.get("contributes", {}),
