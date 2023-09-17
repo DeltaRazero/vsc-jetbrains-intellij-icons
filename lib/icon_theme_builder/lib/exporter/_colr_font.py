@@ -9,7 +9,7 @@ class __:
 
     from ._font import FontExporter
 
-    from svg_inline_styles import SvgInlineStyleConverter
+    import svg_tools
 
 # *****************************************************************************
 
@@ -47,7 +47,10 @@ class ColrFontExporter (__.FontExporter, __.abc.ABC):
         # Nanoemoji breaks because it uses PicoSVG and it cannot handle when <style> tag is used pretty much, so
         # convert the class style attributes to inline style attributes
         for svg in self._svg_dir.glob('*.svg'):
-            __.SvgInlineStyleConverter.convert(str(svg))
+            __.svg_tools.SvgInlineStyleConverter.convert(str(svg))
+
+        for svg in self._svg_dir.glob('*.svg'):
+            __.svg_tools.SvgFrameAdder.convert(str(svg))
 
         # We'll do an additional cleanup here to cut down size
         svgo_config_fp = __.path.Path(__file__).parent / "svgo_config.js"

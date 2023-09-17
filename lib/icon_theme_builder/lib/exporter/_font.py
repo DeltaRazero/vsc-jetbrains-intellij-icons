@@ -11,6 +11,8 @@ class __:
 
     from icon_theme_builder.lib import util
 
+    import svg_tools
+
 # *****************************************************************************
 
 class FontExporter (__.Exporter):
@@ -59,14 +61,13 @@ class FontExporter (__.Exporter):
         if icon_file.suffix != ".svg": raise RuntimeError("File must be SVG.")
 
         # Append unicode to filepath and copy file to temp dir
+        temp_file_svg = (self._svg_dir / f'u{glyph}.svg')
         __.shutil.copy(
             icon_file,
-            (self._svg_dir / f'u{glyph}.svg'),
+            temp_file_svg,
         )
 
-        # For debugging purposes
-        # with open(icon_file, 'r') as f:
-        #     print(f.read())
+        __.svg_tools.SvgScaler.scale(str(temp_file_svg), properties.scale)
 
         return fr'\{glyph}'
 
