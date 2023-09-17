@@ -61,6 +61,7 @@ class FileIconThemeBuilder (__.IconThemeBuilder):
 
             append_arrow_postfix = not (variants[0] and variants[1]) and is_arrow_variant
             theme.theme_name = f'{self._file_icon_theme_args.theme_name}{" [exp-arrows]" if append_arrow_postfix else ""}'
+            theme.theme_id = self._as_id(theme.theme_name)
 
             theme.hides_explorer_arrows = not bool(is_arrow_variant)
 

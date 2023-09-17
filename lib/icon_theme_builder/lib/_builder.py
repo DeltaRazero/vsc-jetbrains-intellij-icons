@@ -134,6 +134,15 @@ class IconThemeBuilder (__.abc.ABC):
 
         return icons
 
+    # :: PROTECTED METHODS :: #
+
+    def _as_id(self, string: str) -> str:
+        return '-'.join(
+            list(filter(
+                None, __.re.sub('[^0-9a-zA-Z]+', ' ', string).split(' ')
+            ))
+        ).lower()
+
 
     # :: PRIVATE METHODS :: #
 

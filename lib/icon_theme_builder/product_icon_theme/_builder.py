@@ -58,6 +58,7 @@ class ProductIconThemeBuilder (__.IconThemeBuilder):
                 __.ColorTheme.CONTRAST    : 'contrast',
             }[color_theme]
             theme.theme_name = f'{self._icon_theme_builder_args.theme_name} [{color_theme_name}]'
+            theme.theme_id = self._as_id(theme.theme_name)
 
             for icon in self._icons:
                 icon.add_to_theme(theme, color_theme)
