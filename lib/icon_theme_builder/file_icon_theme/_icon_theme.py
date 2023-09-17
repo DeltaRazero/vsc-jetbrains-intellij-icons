@@ -22,7 +22,9 @@ class FileIconTheme (__.IconTheme):
 
     def __init__(self, icon_base_dir: __.path.Path) -> None:
         super().__init__(icon_base_dir, [
-            __.exporter.FontExporter, __.exporter.ColrFontExporter
+            __.exporter.FontExporter,
+            __.exporter.GlyfColrFontExporter,
+            __.exporter.CbdtColrFontExporter,
         ])
 
         self.hides_explorer_arrows = False

@@ -38,9 +38,17 @@ class Icon (__.abc.ABC, object):
         return self
 
 
-    def as_colr_glyph(self) -> 'Icon':
+    def as_glyf_colr_glyph(self) -> 'Icon':
         """Enables colored export (using COLRv1)"""
-        self._exporter_klass = __.exporter.ColrFontExporter
+        self._exporter_klass = __.exporter.GlyfColrFontExporter
+        return self
+
+
+    def as_cbdt_colr_glyph(self) -> 'Icon':
+        """Enables colored export (using COLRv1)"""
+        self._exporter_klass = __.exporter.CbdtColrFontExporter
+        return self
+
         return self
 
 

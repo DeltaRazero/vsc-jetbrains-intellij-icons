@@ -1,9 +1,11 @@
 
 class __:
 
+    import abc
     import pathlib as path
     import shutil
     import os
+    import enum
 
     from ._font import FontExporter
 
@@ -11,18 +13,25 @@ class __:
 
 # *****************************************************************************
 
-class ColrFontExporter (__.FontExporter):
+class ColrFontType (__.enum.Enum):
+    GLYF = __.enum.auto()
+    CBDT = __.enum.auto()
 
-    # :: PUBLIC ATTRIBUTES :: #
+
+class ColrFontExporter (__.FontExporter, __.abc.ABC):
+
+    # :: PRIVATE ATTRIBUTES :: #
 
     _nanoemoji_args : str
+    _colr_font_type : ColrFontType
 
 
     # :: CONSTRUCTOR :: #
 
-    def __init__(self) -> None:
+    def __init__(self, colr_font_type: ColrFontType) -> None:
         super().__init__()
         self._nanoemoji_args = ""
+        self._colr_font_type = colr_font_type
         return
 
 
@@ -47,7 +56,11 @@ class ColrFontExporter (__.FontExporter):
             svgo_p.read()
 
         svgs = [f'"{svg_fp}"' for svg_fp in sorted(self._svg_dir.glob('*.svg'))]
-        cmd = f'cd "{self._copy_dir}" && nanoemoji {self._nanoemoji_args} --color_format=glyf_colr_1 --clip_to_viewbox=true --linegap=0 {" ".join(svgs)}'
+        colr_format = {
+            ColrFontType.CBDT : "cbdt",
+            ColrFontType.GLYF : "glyf_colr_1",
+        }[self._colr_font_type]
+        cmd = f'cd "{self._copy_dir}" && nanoemoji {self._nanoemoji_args} --color_format={colr_format} --clip_to_viewbox=false --linegap=0 {" ".join(svgs)}'
         # cmd = f'cd "{self._copy_dir}" && nanoemoji {self._nanoemoji_args} --clip_to_viewbox false --linegap 0 --color_format cbdt --width 2 {" ".join(svgs)}'
         print(cmd)
         with __.os.popen(cmd) as nanoemoji_p:
@@ -70,4 +83,16 @@ class ColrFontExporter (__.FontExporter):
 
         __.shutil.rmtree(self._copy_dir)
 
+        return
+
+# *****************************************************************************
+
+class GlyfColrFontExporter (ColrFontExporter):
+    def __init__(self) -> None:
+        super().__init__(ColrFontType.GLYF)
+        return
+
+class CbdtColrFontExporter (ColrFontExporter):
+    def __init__(self) -> None:
+        super().__init__(ColrFontType.CBDT)
         return

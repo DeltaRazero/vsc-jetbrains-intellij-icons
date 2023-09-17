@@ -22,4 +22,4 @@ def all_as_glyph(icons: list[__.Icon]) -> list[__.Icon]:
     return [icon.as_glyph() for icon in icons]
 
 def all_as_colr_glyph(icons: list[__.Icon]) -> list[__.Icon]:
-    return [icon.as_colr_glyph() for icon in icons]
+    return [icon.as_glyf_colr_glyph() for icon in icons]
