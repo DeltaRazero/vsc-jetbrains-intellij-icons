@@ -6,8 +6,9 @@ class __:
     import typing as t
 
     from . import exporter
-    from ._icon_theme  import IconTheme
-    from ._color_theme import ColorTheme
+    from ._icon_theme      import IconTheme
+    from ._color_theme     import ColorTheme
+    from ._icon_properties import IconProperties
 
 # *****************************************************************************
 
@@ -21,13 +22,14 @@ class Icon (__.abc.ABC, object):
     # :: PRIVATE ATTRIBUTES :: #
 
     _exporter_klass : __.t.Type[__.exporter.Exporter] | None
-
+    _properties : __.IconProperties
 
     # :: CONSTRUCTOR :: #
 
     def __init__(self) -> None:
         self._exporter_klass = None
         self._base_path = ""
+        self._properties = __.IconProperties()
         return
 
 
@@ -49,6 +51,8 @@ class Icon (__.abc.ABC, object):
         self._exporter_klass = __.exporter.CbdtColrFontExporter
         return self
 
+    def scaled(self, scale: float) -> 'Icon':
+        self._properties.scale = scale
         return self
 
 
@@ -63,3 +67,7 @@ class Icon (__.abc.ABC, object):
         if (self._exporter_klass is None):
             raise RuntimeError("Exporter class not set!")
         return self._exporter_klass
+
+
+    def _get_properties(self) -> __.IconProperties:
+        return self._properties

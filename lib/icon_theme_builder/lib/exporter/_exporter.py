@@ -4,6 +4,8 @@ class __:
     import abc
     import pathlib as path
 
+    from .._icon_properties import IconProperties
+
 # *****************************************************************************
 
 class Exporter (__.abc.ABC):
@@ -25,7 +27,7 @@ class Exporter (__.abc.ABC):
     # :: PUBLIC METHODS :: #
 
     @__.abc.abstractmethod
-    def add_icon(self, icon_fp: str) -> str:
+    def add_icon(self, icon_fp: str, properties: __.IconProperties) -> str:
         """Returns glyph codepoint."""
         ...
 

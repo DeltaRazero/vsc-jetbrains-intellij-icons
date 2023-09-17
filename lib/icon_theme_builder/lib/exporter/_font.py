@@ -7,6 +7,7 @@ class __:
     import os
 
     from ._exporter import Exporter
+    from .._icon_properties import IconProperties
 
     from icon_theme_builder.lib import util
 
@@ -48,7 +49,7 @@ class FontExporter (__.Exporter):
 
     # :: PUBLIC METHODS :: #
 
-    def add_icon(self, icon_fp: str) -> str:
+    def add_icon(self, icon_fp: str, properties: __.IconProperties) -> str:
         """Returns glyph codepoint."""
         glyph = f'{self._current_glyph:x}'.upper() # Format as HEX (no leading '0x')
         self._current_glyph += 1
