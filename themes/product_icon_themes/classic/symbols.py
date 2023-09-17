@@ -167,9 +167,8 @@ icons = helper.all_as_colr_glyph([
         ["symbol-text"]
     ),
 
-    # TODO: Make custom, use same letter and color as `codeAssistantType`
     ProductIcon(
-        "/jetbrains/NetIcons128/Placeholder(Color).svg",
+        "/jetbrains/AllIcons/nodes/type.svg",
         ["symbol-type-parameter"]
     ),
 

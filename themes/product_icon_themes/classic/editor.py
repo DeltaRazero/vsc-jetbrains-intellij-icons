@@ -8,7 +8,7 @@ icons = [
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/actions/intentionBulb.svg"),
         },
         ["light-bulb", "lightbulb"]
-    ).as_colr_glyph(),
+    ).as_glyf_colr_glyph(),
 
     ProductIcon(
         {
@@ -16,6 +16,6 @@ icons = [
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/actions/quickfixBulb.svg"),
         },
         ["lightbulb-autofix"]
-    ).as_colr_glyph(),
+    ).as_glyf_colr_glyph(),
 
 ]

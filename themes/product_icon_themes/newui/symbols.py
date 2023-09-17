@@ -256,11 +256,10 @@ icons = helper.all_as_colr_glyph([
         ["symbol-text"]
     ),
 
-    # TODO: Make custom, use same letter and color as `codeAssistantType`
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/nodes/type_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/nodes/type.svg"),
         },
         ["symbol-type-parameter"]
     ),
