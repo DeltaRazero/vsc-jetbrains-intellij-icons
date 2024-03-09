@@ -63,7 +63,7 @@ class ColrFontExporter (__.FontExporter, __.abc.ABC):
             ColrFontType.CBDT : "cbdt",
             ColrFontType.GLYF : "glyf_colr_1",
         }[self._colr_font_type]
-        cmd = f'cd "{self._copy_dir}" && nanoemoji {self._nanoemoji_args} --color_format={colr_format} --clip_to_viewbox=false --linegap=0 {" ".join(svgs)}'
+        cmd = f'cd "{self._copy_dir}" && nanoemoji {self._nanoemoji_args} --color_format={colr_format} --clip_to_viewbox=false {" ".join(svgs)}'
         # cmd = f'cd "{self._copy_dir}" && nanoemoji {self._nanoemoji_args} --clip_to_viewbox false --linegap 0 --color_format cbdt --width 2 {" ".join(svgs)}'
         print(cmd)
         with __.os.popen(cmd) as nanoemoji_p:

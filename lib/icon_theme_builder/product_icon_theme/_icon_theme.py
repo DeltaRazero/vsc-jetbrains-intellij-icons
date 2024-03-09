@@ -48,7 +48,8 @@ class ProductIconTheme (__.IconTheme):
             # exporter.add_nanoemoji_args("--upem 1088 --ascender 100 --descender 0")
             # exporter.add_nanoemoji_args("--upem 1135 --transform \"translate(0, -0.5)\"")
             # exporter.add_nanoemoji_args("--upem 1136")
-            exporter.add_nanoemoji_args("--upem 1144")
+            # exporter.add_nanoemoji_args("--upem 1144") ###
+            exporter.add_nanoemoji_args("--upem 1192 --ascender=1200 --descender=-150")
             # exporter.add_nanoemoji_args("--upem 1152")
             # exporter.add_nanoemoji_args("--upem 1184")
             # exporter.add_nanoemoji_args("--upem 1584")
