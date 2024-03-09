@@ -23,13 +23,7 @@ icons = [
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/CidrLangIcons/icons/expui/fileTypes/m_dark.svg"),
             ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/CidrLangIcons/icons/expui/fileTypes/m.svg"),
         },
-        file_extensions=["m"],
-    ),
-
-    # TODO: Make custom icon
-    icon.FileIcon(
-        "/customico/CidrLangIcons/icons/fileTypes/mm.svg",
-        file_extensions=["mm"],
+        file_extensions=["m", "mm"],
     ),
 
     icon.FileIcon(
@@ -40,9 +34,11 @@ icons = [
         file_extensions=["cc", "cpp", "cxx", "c++", "cp", "mii", "ii"],
     ),
 
-    # TODO: Make custom icon
     icon.FileIcon(
-        "/customico/CidrLangIcons/icons/fileTypes/hpp.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/CidrLangIcons/icons/expui/fileTypes/hpp_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/CidrLangIcons/icons/expui/fileTypes/hpp.svg"),
+        },
         file_extensions=["hh", "hpp", "hxx", "h++", "hp", "tcc", "inl"],
     ),
 
@@ -54,7 +50,6 @@ icons = [
         file_extensions=["ld"],
     ),
 
-    # TODO: Make a custom icon using the any_file + AllIcons/nodes/compiledClassesFolder icon
     icon.FileIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/DatabaseIcons/icons/expui/binaryData_dark.svg"),

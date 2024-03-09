@@ -106,10 +106,16 @@ icons = [
     ),
 
     icon.FolderIcon(
-        (
-            "/jetbrains/AllIcons/nodes/ppLibFolder.svg",
-            "/customico/AllIcons/nodes/ppLibFolder-open.svg",
-        ),
+        {
+            ColorTheme.DEFAULT_DARK: icon.FolderIconDefinition(
+                                        "/jetbrains/AllIcons/expui/nodes/libraryFolder_dark.svg",
+                                        "/customico/AllIcons/expui/nodes/libraryFolder_dark-open.svg",
+                                    ),
+            ColorTheme.LIGHT       : icon.FolderIconDefinition(
+                                        "/jetbrains/AllIcons/expui/nodes/libraryFolder.svg",
+                                        "/customico/AllIcons/expui/nodes/libraryFolder-open.svg",
+                                    ),
+        },
         helper.name_combinations(["library", "libraries", "lib", "libs", "third-party"], [".", "_"])
     ),
 
