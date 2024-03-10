@@ -156,9 +156,8 @@ icons = helper.all_as_colr_glyph([
         ["symbol-string"]
     ),
 
-    # TODO: Make custom, use same color as `codeAssistantStruct`
     ProductIcon(
-        "/jetbrains/NetIcons128/Placeholder(Color).svg",
+        "/customico/AllIcons/nodes/struct.svg",
         ["symbol-struct", "symbol-structure"]
     ),
 

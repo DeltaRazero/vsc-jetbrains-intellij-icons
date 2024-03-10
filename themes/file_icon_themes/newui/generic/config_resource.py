@@ -45,12 +45,17 @@ icons = [
         file_extensions=["editorconfig"],
     ),
 
-    # TODO: Convert + custom icon
     icon.FolderIcon(
-        (
-            "/jetbrains/AllIcons/nodes/configFolder.svg",
-            "/customico/AllIcons/nodes/configFolder-open.svg",
-        ),
+        {
+            ColorTheme.DEFAULT_DARK: icon.FolderIconDefinition(
+                                        "/customico/AllIcons/expui/nodes/configFolder_dark.svg",
+                                        "/customico/AllIcons/expui/nodes/configFolder_dark-open.svg",
+                                    ),
+            ColorTheme.LIGHT       : icon.FolderIconDefinition(
+                                        "/customico/AllIcons/expui/nodes/configFolder.svg",
+                                        "/customico/AllIcons/expui/nodes/configFolder-open.svg",
+                                    ),
+        },
         [
             "config",
             "configs",
