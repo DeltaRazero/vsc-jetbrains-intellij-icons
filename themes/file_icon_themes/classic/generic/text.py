@@ -5,6 +5,7 @@ icons = [
     icon.FileIcon(
         "/jetbrains/AllIcons/fileTypes/text.svg",
         file_extensions=["txt", "text", "rst"],
+        file_names=["readme", "license"],
     ),
 
     icon.FileIcon(

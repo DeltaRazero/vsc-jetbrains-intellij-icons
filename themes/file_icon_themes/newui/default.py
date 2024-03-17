@@ -10,7 +10,6 @@ icons = [
         [""],
     ).as_default(),
 
-    # TODO: todo
     icon.FolderIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FolderIconDefinition(

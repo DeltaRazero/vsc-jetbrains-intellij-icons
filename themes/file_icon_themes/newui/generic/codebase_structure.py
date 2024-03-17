@@ -109,12 +109,17 @@ icons = [
         )
     ),
 
-    # TODO: expui
     icon.FolderIcon(
-        (
-            "/jetbrains/MpsIcons25/pluginModel.svg",
-            "/customico/MpsIcons25/pluginModel-open.svg",
-        ),
+        {
+            ColorTheme.DEFAULT_DARK: icon.FolderIconDefinition(
+                                        "/customico/AllIcons/expui/nodes/pluginFolder_dark.svg",
+                                        "/customico/AllIcons/expui/nodes/pluginFolder_dark-open.svg",
+                                    ),
+            ColorTheme.LIGHT       : icon.FolderIconDefinition(
+                                        "/customico/AllIcons/expui/nodes/pluginFolder.svg",
+                                        "/customico/AllIcons/expui/nodes/pluginFolder-open.svg",
+                                    ),
+        },
         helper.name_combinations(["plugin", "addon", "extension"], [".", "_"], ["s"])
     ),
 

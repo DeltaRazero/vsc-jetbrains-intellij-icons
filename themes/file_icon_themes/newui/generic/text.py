@@ -8,6 +8,7 @@ icons = [
             ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/AllIcons/expui/fileTypes/text.svg"),
         },
         file_extensions=["txt", "text", "rst"],
+        file_names=["readme", "license"],
     ),
 
     icon.FileIcon(

@@ -31,11 +31,11 @@ icons = [
         {
             ColorTheme.DEFAULT_DARK: icon.FolderIconDefinition(
                                         "/jetbrains/AllIcons/expui/nodes/excludeRoot_dark.svg",
-                                        "/jetbrains/AllIcons/expui/nodes/excludeRoot_dark.svg", # TODO: Make custom open icon
+                                        "/customico/AllIcons/expui/nodes/excludeRoot_dark-open.svg",
                                     ),
             ColorTheme.LIGHT       : icon.FolderIconDefinition(
                                         "/jetbrains/AllIcons/expui/nodes/excludeRoot.svg",
-                                        "/jetbrains/AllIcons/expui/nodes/excludeRoot.svg", # TODO: Make custom open icon
+                                        "/customico/AllIcons/expui/nodes/excludeRoot-open.svg",
                                     ),
         },
         ["node_modules"],

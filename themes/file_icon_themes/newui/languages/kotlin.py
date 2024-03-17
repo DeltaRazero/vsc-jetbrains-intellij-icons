@@ -5,12 +5,18 @@ icons = [
     # TODO: todo
 
     icon.FileIcon(
-        "/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/kotlin_file.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/expui/kotlin_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/expui/kotlin.svg"),
+        },
         file_extensions=["kt", "ktm"],
     ),
 
     icon.FileIcon(
-        "/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/kotlin_script.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/expui/kotlinScript_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/expui/kotlinScript.svg"),
+        },
         file_extensions=["kts"],
     ),
 
