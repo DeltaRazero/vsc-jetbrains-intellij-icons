@@ -77,7 +77,7 @@ class IconTheme (__.abc.ABC):
     # :: PUBLIC METHODS :: #
 
     def add_to_theme_json(self, json: dict, default_icon_reused: bool) -> None:
-        __.deepmerge.always_merger.merge(self._theme_json, json) # TODO: Maybe print warning if key already exists?
+        __.deepmerge.always_merger.merge(self._theme_json, json) # TODO: Print warning or throw error if key already exists
         self._unique |= not default_icon_reused
         return
 

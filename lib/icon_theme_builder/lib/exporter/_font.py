@@ -40,8 +40,7 @@ class FontExporter (__.Exporter):
 
         if (self._copy_dir.exists()):
             __.shutil.rmtree(self._copy_dir)
-
-        self._copy_dir.mkdir(parents=True, exist_ok=True) # TODO: Check if dir exists and otherwise remove
+        self._copy_dir.mkdir(parents=True, exist_ok=True)
 
         self._svg_dir = self._copy_dir / 'svg'
         self._svg_dir.mkdir(parents=True, exist_ok=True)
@@ -84,11 +83,6 @@ class FontExporter (__.Exporter):
             cmd = f'cd / && bash /usr/src/myapp/include/svg-stroke-to-path/svg-stroke-to-path all {svg}'
             with __.os.popen(cmd) as stroke_path_fixer_p:
                 stroke_path_fixer_p.read()
-
-            # I tried oslllo-svg-fixer at first but it doesn't even work lol
-            # cmd = f'oslllo-svg-fixer --source {svg} --destination /usr/src/myapp/test/{svg.name} --trace-resolution 900 --show-progress false'
-            # with __.os.popen(cmd) as oslllo_svg_fixer_p:
-            #     oslllo_svg_fixer_p.read()
 
         # Minify svgs for smaller font sizes
         svgo_config_fp = __.path.Path(__file__).parent / "svgo_config.js"

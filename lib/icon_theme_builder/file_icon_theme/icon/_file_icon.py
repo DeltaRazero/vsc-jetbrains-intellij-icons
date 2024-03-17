@@ -91,7 +91,7 @@ class FileIcon (__.DefaultableFileIconThemeIcon):
 
         match exporter:
             case __.exporter.FontExporter() | __.exporter.ColrFontExporter():
-                glyph_code = exporter.add_icon(definition.file, self._get_properties()) # TODO: Get glyph from method
+                glyph_code = exporter.add_icon(definition.file, self._get_properties()) # TODO?: Get glyph from method
                 json_root["iconDefinitions"][id] = {
                     "fontCharacter": glyph_code,
                     "fontId": exporter.get_font_id(),

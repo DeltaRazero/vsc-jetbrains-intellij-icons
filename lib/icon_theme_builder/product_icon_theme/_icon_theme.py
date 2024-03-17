@@ -44,16 +44,9 @@ class ProductIconTheme (__.IconTheme):
         if (not isinstance(exporter, __.exporter.FontExporter)):
             raise Exception("Only glyph exporters allowed!")
 
+        # VSCode does some weird scaling and positioning of product icon fonts generated with nanoemoji, so these options fix that
         if (isinstance(exporter, __.exporter.ColrFontExporter)):
-            # exporter.add_nanoemoji_args("--upem 1088 --ascender 100 --descender 0")
-            # exporter.add_nanoemoji_args("--upem 1135 --transform \"translate(0, -0.5)\"")
-            # exporter.add_nanoemoji_args("--upem 1136")
-            # exporter.add_nanoemoji_args("--upem 1144") ###
-            exporter.add_nanoemoji_args("--upem 1192 --ascender=1200 --descender=-150")
-            # exporter.add_nanoemoji_args("--upem 1152")
-            # exporter.add_nanoemoji_args("--upem 1184")
-            # exporter.add_nanoemoji_args("--upem 1584")
-            # pass
+            exporter.add_nanoemoji_args("--upem 1792 --ascender=1700 --descender=-100")
 
         self._theme_json["fonts"] = self._theme_json.get("fonts", []) + [{
             "id": exporter.get_font_id(),

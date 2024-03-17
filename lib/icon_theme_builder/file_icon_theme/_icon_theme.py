@@ -54,10 +54,7 @@ class FileIconTheme (__.IconTheme):
     def on_exporter(self, exporter: __.exporter.Exporter):
 
         if (isinstance(exporter, __.exporter.ColrFontExporter)):
-            # exporter.add_nanoemoji_args("--upem 1088 --ascender 100 --descender 0")
             # Upem larger zooms out, smaller zooms in
-            # exporter.add_nanoemoji_args("--upem 925")
-            # exporter.add_nanoemoji_args("--upem 928")
             exporter.add_nanoemoji_args("--upem 930")
 
         if (isinstance(exporter, __.exporter.FontExporter)):
