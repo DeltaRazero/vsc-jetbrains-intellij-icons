@@ -13,10 +13,6 @@ RUN apt-get update && apt-get install -y \
 RUN npm i -g @vscode/vsce
 RUN npm i -g svgtofont
 RUN npm i -g svgo
-# RUN npm i -g oslllo-svg-fixer
-
-RUN git clone https://github.com/leifgehrmann/svg-stroke-to-path.git ./include/svg-stroke-to-path
-ENV PATH="$PATH:/usr/src/myapp/include/svg-stroke-to-path"
 
 ENV PATH="$PATH:/usr/src/myapp/bin"
 ENV PATH="$PATH:/usr/src/myapp/lib"

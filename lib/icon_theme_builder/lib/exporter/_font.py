@@ -79,10 +79,24 @@ class FontExporter (__.Exporter):
 
         # We need to do some pre-processing to ensure svgtofont works properly
         for svg in self._svg_dir.glob('*.svg'):
-            # svg2ttf used by svgtofont has problems with strokes, so convert strokes to fill paths
-            cmd = f'cd / && bash /usr/src/myapp/include/svg-stroke-to-path/svg-stroke-to-path all {svg}'
-            with __.os.popen(cmd) as stroke_path_fixer_p:
-                stroke_path_fixer_p.read()
+            # svg2ttf used by svgtofont does not support strokes and the 'evenodd' fill-rule. We can use
+            # Inkscape's CLI to convert strokes to fill paths and fix paths that use the 'evenodd' fill-rule
+            inkscape_actions = ''
+
+            svg_str: str = None
+            with open(svg, 'r') as svg_f:
+                svg_str = svg_f.read()
+
+            # Quick and dirty way to check what actions we should carry out
+            if (svg_str.find('stroke') >= 0): inkscape_actions += ';object-stroke-to-path'
+            if (svg_str.find('fill-rule="evenodd"') >= 0): inkscape_actions += ';path-break-apart;path-exclusion'
+
+            del svg_str
+
+            if (inkscape_actions):
+                cmd = f'inkscape --actions="select-all:all{inkscape_actions}" --export-filename="{svg}" "{svg}"'
+                with __.os.popen(cmd) as evenodd_fixer_p:
+                    evenodd_fixer_p.read()
 
         # Minify svgs for smaller font sizes
         svgo_config_fp = __.path.Path(__file__).parent / "svgo_config.js"
