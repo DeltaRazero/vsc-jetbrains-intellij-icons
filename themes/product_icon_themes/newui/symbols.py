@@ -61,8 +61,10 @@ icons = helper.all_as_colr_glyph([
 
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/nodes/constant_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/nodes/constant.svg"),
+            # ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/nodes/constant_dark.svg"),
+            # ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/nodes/constant.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/debugger/value_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/debugger/value.svg"),
         },
         ["symbol-enum-member"]
     ),
@@ -272,11 +274,11 @@ icons = helper.all_as_colr_glyph([
         ["symbol-unit"]
     ),
 
-    # TODO: Make custom, use same letter and color as Kotlin `value`
+    # TODO: Make custom, use same letter and color as Kotlin `value`?
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/debugger/value_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/debugger/value.svg"),
         },
         ["symbol-value"]
     ),
