@@ -27,8 +27,7 @@ class Exporter (__.abc.ABC):
     # :: PUBLIC METHODS :: #
 
     @__.abc.abstractmethod
-    def add_icon(self, icon_fp: str, properties: __.IconProperties) -> str:
-        """Returns glyph codepoint."""
+    def add_icon(self, icon_fp: str, properties: __.IconProperties) -> None:
         ...
 
 

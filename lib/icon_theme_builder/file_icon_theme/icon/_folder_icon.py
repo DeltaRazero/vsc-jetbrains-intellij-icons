@@ -90,9 +90,10 @@ class FolderIcon (__.DefaultableFileIconThemeIcon):
 
             match exporter:
                 case __.exporter.FontExporter() | __.exporter.ColrFontExporter():
-                    glyph_code = exporter.add_icon(icon_fp, self._get_properties()) # TODO?: Get glyph from method
+                    glyph_code = exporter.get_glyph_code()
+                    exporter.add_icon(icon_fp, self._get_properties())
                     json_root["iconDefinitions"][id] = {
-                        "fontCharacter": glyph_code,
+                        "fontCharacter": fr'\{glyph_code}',
                         "fontId": exporter.get_font_id(),
                     }
                 case _:

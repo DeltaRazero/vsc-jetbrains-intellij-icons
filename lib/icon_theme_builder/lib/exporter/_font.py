@@ -5,6 +5,8 @@ class __:
     import shutil
     import json
     import os
+    from multiprocessing import cpu_count
+    from concurrent.futures import ThreadPoolExecutor
 
     from ._exporter import Exporter
     from .._icon_properties import IconProperties
@@ -50,9 +52,9 @@ class FontExporter (__.Exporter):
 
     # :: PUBLIC METHODS :: #
 
-    def add_icon(self, icon_fp: str, properties: __.IconProperties) -> str:
+    def add_icon(self, icon_fp: str, properties: __.IconProperties) -> None:
         """Returns glyph codepoint."""
-        glyph = f'{self._current_glyph:x}'.upper() # Format as HEX (no leading '0x')
+        glyph = self.get_glyph_code()
         self._current_glyph += 1
 
         icon_file = self._fp(icon_fp)
@@ -68,19 +70,24 @@ class FontExporter (__.Exporter):
 
         __.svg_tools.SvgScaler.scale(str(temp_file_svg), properties.scale)
 
-        return fr'\{glyph}'
+        return
 
 
     def get_font_id(self) -> str:
         return self._font_id
 
 
+    def get_glyph_code(self) -> str:
+        """Gets the current glyph code counter value. You should call method this before using `add_icon()`."""
+        return f'{self._current_glyph:x}'.upper() # Format as HEX (no leading '0x')
+
+
     def consolidate(self, dist_dir: __.path.Path):
 
         # We need to do some pre-processing to ensure svgtofont works properly
-        for svg in self._svg_dir.glob('*.svg'):
+        def process_svg(svg: __.path.Path) -> None:
             # svg2ttf used by svgtofont does not support strokes and the 'evenodd' fill-rule. We can use
-            # Inkscape's CLI to convert strokes to fill paths and fix paths that use the 'evenodd' fill-rule
+            # Inkscape's CLI to convert strokes to fill-paths and fix paths that use the 'evenodd' fill-rule
             inkscape_actions = ''
 
             svg_str: str = None
@@ -97,6 +104,9 @@ class FontExporter (__.Exporter):
                 cmd = f'inkscape --actions="select-all:all{inkscape_actions}" --export-filename="{svg}" "{svg}"'
                 with __.os.popen(cmd) as evenodd_fixer_p:
                     evenodd_fixer_p.read()
+
+        with __.ThreadPoolExecutor(__.cpu_count()) as pool:
+            pool.map(process_svg, self._svg_dir.glob('*.svg'))
 
         # Minify svgs for smaller font sizes
         svgo_config_fp = __.path.Path(__file__).parent / "svgo_config.js"

@@ -6,6 +6,8 @@ class __:
     import shutil
     import os
     import enum
+    from multiprocessing import cpu_count
+    from concurrent.futures import ThreadPoolExecutor
 
     from ._font import FontExporter
 
@@ -44,11 +46,14 @@ class ColrFontExporter (__.FontExporter, __.abc.ABC):
 
     def consolidate(self, dist_dir: __.path.Path):
 
-        # Nanoemoji breaks because it uses PicoSVG and it cannot handle when <style> tag is used pretty much, so
-        # convert the class style attributes to inline style attributes
-        for svg in self._svg_dir.glob('*.svg'):
+        # Picosvg (used by nanoemoji in its backend) does not support style tags so convert them to inline style
+        # properties
+        def process_svg(svg: __.path.Path) -> None:
             __.svg_tools.SvgInlineStyleConverter.convert(str(svg))
             __.svg_tools.SvgFrameAdder.convert(str(svg))
+
+        with __.ThreadPoolExecutor(__.cpu_count()) as pool:
+            pool.map(process_svg, self._svg_dir.glob('*.svg'))
 
         # We'll do an additional cleanup here to cut down size
         svgo_config_fp = __.path.Path(__file__).parent / "svgo_config.js"
