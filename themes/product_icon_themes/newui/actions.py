@@ -7,7 +7,7 @@ icons = helper.all_as_glyph([
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/add_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/add.svg"),
         },
-        ["add"]
+        ["add", "plus"]
     ),
 
     ProductIcon(
@@ -15,7 +15,7 @@ icons = helper.all_as_glyph([
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/close_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/close.svg"),
         },
-        ["close"]
+        ["close", "remove-close"]
     ),
 
     ProductIcon(

@@ -121,4 +121,20 @@ icons = helper.all_as_colr_glyph([
         ["debug-breakpoint-unsupported"]
     ).scaled(0.775),
 
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/breakpoints/breakpointUnsuspendentDisabled_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/breakpoints/breakpointUnsuspendentDisabled.svg"),
+        },
+        ["debug-stackframe", "debug-stackframe-focused"]
+    ).scaled(0.65),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/breakpoints/breakpointUnsuspendent_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/breakpoints/breakpointUnsuspendent.svg"),
+        },
+        ["debug-stackframe-dot", "debug-stackframe-active"]
+    ).scaled(0.65),
+
 ])

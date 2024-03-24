@@ -27,4 +27,12 @@ icons = helper.all_as_glyph([
         ["diff"]
     ),
 
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/merge_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/merge.svg"),
+        },
+        ["merge"]
+    ),
+
 ])

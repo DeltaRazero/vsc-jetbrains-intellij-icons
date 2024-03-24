@@ -4,11 +4,11 @@ icons = helper.all_as_glyph([
 
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/branch_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/branch.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/vcs_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/vcs.svg"),
         },
         ["git-branch",
-         	"git-branch-create"
+            "git-branch-create",
             "git-branch-delete"] # TODO: Make custom icons, VSCode doesn't have them but would be nice to have
     ),
 
