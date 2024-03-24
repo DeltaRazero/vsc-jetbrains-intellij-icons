@@ -84,26 +84,25 @@ class FontExporter (__.Exporter):
 
     def consolidate(self, dist_dir: __.path.Path):
 
-        # We need to do some pre-processing to ensure svgtofont works properly
+        # svg2ttf (used by svgtofont) does not support strokes and also does not support paths using the 'evenodd'
+        # fill-rule. We need to preprocess fonts to ensure svgtofont converts them properly
         def process_svg(svg: __.path.Path) -> None:
-            # svg2ttf used by svgtofont does not support strokes and the 'evenodd' fill-rule. We can use
-            # Inkscape's CLI to convert strokes to fill-paths and fix paths that use the 'evenodd' fill-rule
-            inkscape_actions = ''
-
-            svg_str: str = None
+            # Use Inkscape CLI to convert strokes to fill-paths
             with open(svg, 'r') as svg_f:
-                svg_str = svg_f.read()
+                if (svg_f.read().find('stroke') >= 0):
+                    cmd = f'inkscape --actions="select-all:all;object-stroke-to-path" --export-filename="{svg}" "{svg}"'
+                    print(cmd)
+                    with __.os.popen(cmd) as inkscape_p:
+                        inkscape_p.read()
 
-            # Quick and dirty way to check what actions we should carry out
-            if (svg_str.find('stroke') >= 0): inkscape_actions += ';object-stroke-to-path'
-            if (svg_str.find('fill-rule="evenodd"') >= 0): inkscape_actions += ';path-break-apart;path-exclusion'
-
-            del svg_str
-
-            if (inkscape_actions):
-                cmd = f'inkscape --actions="select-all:all{inkscape_actions}" --export-filename="{svg}" "{svg}"'
-                with __.os.popen(cmd) as evenodd_fixer_p:
-                    evenodd_fixer_p.read()
+            # Use picosvg to simplify and also take care of converting paths that use the 'evenodd' fill-rule to normal
+            # fill paths
+            # NOTE: picosvg does not support style tags so convert them to inline style properties
+            __.svg_tools.SvgInlineStyleConverter.convert(str(svg))
+            cmd = f'picosvg "{svg}" --output_file="{svg}"'
+            print(cmd)
+            with __.os.popen(cmd) as picosvg_p:
+                picosvg_p.read()
 
         with __.ThreadPoolExecutor(__.cpu_count()) as pool:
             pool.map(process_svg, self._svg_dir.glob('*.svg'))
@@ -111,6 +110,7 @@ class FontExporter (__.Exporter):
         # Minify svgs for smaller font sizes
         svgo_config_fp = __.path.Path(__file__).parent / "svgo_config.js"
         cmd = f'svgo --multipass -f {self._svg_dir} -o {self._svg_dir} --config {svgo_config_fp}'
+        print(cmd)
         with __.os.popen(cmd) as svgo_p:
             svgo_p.read()
 
@@ -127,6 +127,7 @@ class FontExporter (__.Exporter):
             __.json.dump(svgtofont_config, f, separators=(',', ':'))
 
         cmd = f'cd "{self._copy_dir}" && svgtofont --sources "{self._svg_dir}" --output "{self._copy_dir}/build" --fontName {self._font_id}'
+        print(cmd)
         with __.os.popen(cmd) as svgtofont_p:
             svgtofont_p.read()
 

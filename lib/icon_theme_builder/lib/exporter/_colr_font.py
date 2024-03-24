@@ -58,6 +58,7 @@ class ColrFontExporter (__.FontExporter, __.abc.ABC):
         # We'll do an additional cleanup here to cut down size
         svgo_config_fp = __.path.Path(__file__).parent / "svgo_config.js"
         cmd = f'svgo --multipass -f {self._svg_dir} -o {self._svg_dir} --config {svgo_config_fp}'
+        print(cmd)
         with __.os.popen(cmd) as svgo_p:
             svgo_p.read()
 
@@ -76,6 +77,7 @@ class ColrFontExporter (__.FontExporter, __.abc.ABC):
         # nanoemoji places generated files in ./build
         ttf_file = self._copy_dir / "build" / "Font.ttf"
         cmd = f'woff2_compress "{ttf_file}"'
+        print(cmd)
         with __.os.popen(cmd) as woff2_compress_p:
             woff2_compress_p.read()
 
