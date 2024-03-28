@@ -1,8 +1,12 @@
 FROM python:3.10-slim
 
-RUN pip install requests nanoemoji deepmerge css-parser
+RUN pip install \
+    requests \
+    nanoemoji \
+    deepmerge \
+    css-parser \
 # There's a bug in picosvg 0.22.0 so upgrade to a fixed version
-RUN pip install picosvg --upgrade
+&& pip install picosvg --upgrade
 
 RUN apt-get update && apt-get install -y \
     woff2 \
@@ -10,11 +14,10 @@ RUN apt-get update && apt-get install -y \
     npm \
     inkscape
 
-RUN npm i -g @vscode/vsce
-RUN npm i -g svgtofont
-RUN npm i -g svgo
+RUN npm i -g \
+    @vscode/vsce \
+    svgtofont \
+    svgo
 
-ENV PATH="$PATH:/usr/src/myapp/bin"
-ENV PATH="$PATH:/usr/src/myapp/lib"
-
+ENV PATH="$PATH:/usr/src/myapp/bin:/usr/src/myapp/lib"
 ENV PYTHONPATH="$PATH"
