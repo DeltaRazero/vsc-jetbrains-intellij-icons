@@ -82,7 +82,7 @@ class IconThemeBuilder (__.abc.ABC):
 
         themes = self.on_export()
         if not (themes):
-            raise Exception("Expected at least one (1) theme!")
+            raise ValueError("Expected at least one (1) theme!")
 
         for theme in themes:
             theme.export(dist_dir, validate_only)
@@ -94,7 +94,7 @@ class IconThemeBuilder (__.abc.ABC):
 
     def add_icon(self, icon: __.Icon):
         if not (self.is_correct_icon_type(icon)):
-            raise Exception("Not correct icon type!")
+            raise TypeError("Incorrect icon type!")
         self._icons.append(icon)
         return
 
@@ -151,11 +151,11 @@ class IconThemeBuilder (__.abc.ABC):
 
         spec = __.importlib.util.spec_from_file_location("icons_module", str(py_file))
         if (spec is None):
-            raise Exception("Not a Python file!")
+            raise IOError("Not a Python file!")
 
         icons_module = __.importlib.util.module_from_spec(spec)
         if (spec.loader is None):
-            raise Exception("Not a Python file!")
+            raise IOError("Not a Python file!")
 
         __.sys.modules["icons_module"] = icons_module
         spec.loader.exec_module(icons_module)

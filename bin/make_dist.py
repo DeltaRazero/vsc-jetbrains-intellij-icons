@@ -29,11 +29,11 @@ def export_theme(py_file: __.path.Path) -> None:
 
     spec = __.importlib.util.spec_from_file_location("theme_module", str(py_file))
     if (spec is None):
-        raise Exception("Not a Python file!")
+        raise IOError("Not a Python file!")
 
     theme_module = __.importlib.util.module_from_spec(spec)
     if (spec.loader is None):
-        raise Exception("Not a Python file!")
+        raise IOError("Not a Python file!")
 
     __.sys.modules["theme_module"] = theme_module
     spec.loader.exec_module(theme_module)

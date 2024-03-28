@@ -87,7 +87,7 @@ class FileIcon (__.DefaultableFileIconThemeIcon):
 
         exporter = theme.get_exporters().get(self._get_exporter_klass(), None)
         if (exporter is None):
-            raise Exception("Too lazy to build right now")
+            raise ValueError("No exporter was set!")
 
         match exporter:
             case __.exporter.FontExporter() | __.exporter.ColrFontExporter():
@@ -98,7 +98,7 @@ class FileIcon (__.DefaultableFileIconThemeIcon):
                     "fontId": exporter.get_font_id(),
                 }
             case _:
-                raise Exception("Too lazy to build right now")
+                raise ValueError(f"Icon type `{type(self).__name__}` does not support exporter type `{type(exporter).__name__}`!")
 
         if (self._as_default):
             json["file"] = id

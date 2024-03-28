@@ -49,6 +49,10 @@ class Exporter (__.abc.ABC):
 
     def _fp(self, fp: str | __.path.Path) -> __.path.Path:
         self._has_icons = True # Bit of a cheat to set it here, but whatever
+        if (isinstance(fp, str)):
+            fp = __.path.Path(fp)
+        if (self._icon_base_dir is None):
+            raise RuntimeError("Icon base directory not set!")
         fp = self._icon_base_dir / str(fp).lstrip('/')
         if (not fp.exists()):
             raise RuntimeError(f"The filepath \"{fp}\" does not exist!")

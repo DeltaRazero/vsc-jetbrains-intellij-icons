@@ -42,7 +42,7 @@ class ProductIconTheme (__.IconTheme):
     def on_exporter(self, exporter: __.exporter.Exporter):
 
         if (not isinstance(exporter, __.exporter.FontExporter)):
-            raise Exception("Only glyph exporters allowed!")
+            raise ValueError("Only glyph exporters allowed!")
 
         # VSCode does some weird scaling and positioning of product icon fonts generated with nanoemoji, so these options fix that
         if (isinstance(exporter, __.exporter.ColrFontExporter)):

@@ -116,12 +116,6 @@ class FontExporter (__.Exporter):
 
         svgtofont_config = {
             "startUnicode": f'0x{self.START_GLYPH:x}',
-            # "svgicons2svgfont": {
-            #     "fontHeight": 1000, # TODO: Check if this even does anything?
-            #     "round": 10e18 # TODO: Check if this even does anything?
-            # },
-            # "svgicons2svgfont.fontHeight": 1000,
-            # "svgicons2svgfont.round": 10e18,
         }
         with open(self._copy_dir / ".svgtofontrc", 'w') as f:
             __.json.dump(svgtofont_config, f, separators=(',', ':'))
