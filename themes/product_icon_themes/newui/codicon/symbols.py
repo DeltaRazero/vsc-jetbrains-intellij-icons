@@ -58,13 +58,10 @@ icons = helper.all_as_colr_glyph([
         ["symbol-enum"]
     ),
 
-    # TODO: Make custom icon using enum icon and half color it with purple like classObjectScala OR enum icon with in the bottom right resourcesRoot (with color of `value` icon)
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/expui/expect_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/expui/expect.svg"),
-            # ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/debugger/value_dark.svg"),
-            # ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/debugger/value.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/nodes/enumValue_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/nodes/enumValue.svg"),
         },
         ["symbol-enum-member"]
     ),
@@ -125,11 +122,10 @@ icons = helper.all_as_colr_glyph([
         ["symbol-key"]
     ),
 
-    # TODO: Don't know which icon yet
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/string_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/string.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/stringKey_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/stringKey.svg"),
         },
         ["symbol-keyword"]
     ),
@@ -158,6 +154,7 @@ icons = helper.all_as_colr_glyph([
         ["symbol-module, symbol-namespace", "symbol-package"]
     ),
 
+    # TODO: Make replace with a custom icon
     ProductIcon(
         {
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/RubyIcons/icons/expui/ruby/nodes/notDefined_dark.svg"),
@@ -166,11 +163,10 @@ icons = helper.all_as_colr_glyph([
         ["symbol-null"]
     ),
 
-    # TODO: Make custom
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/DatabaseIcons/icons/expui/number_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/DatabaseIcons/icons/expui/number.svg"),
         },
         ["symbol-number", "symbol-numeric"]
     ),
@@ -207,11 +203,10 @@ icons = helper.all_as_colr_glyph([
         ["symbol-property"]
     ),
 
-    # TODO: Don't know which icon yet -> ruby symbol
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/NetIcons128/Placeholder(Color).svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/actions/moveToButton_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/actions/moveToButton.svg"),
         },
         ["symbol-reference"]
     ),
@@ -233,6 +228,7 @@ icons = helper.all_as_colr_glyph([
         ["symbol-snippet"]
     ),
 
+    # TODO: Maybe use AquaWIIcons/text ?
     ProductIcon(
         {
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/string_dark.svg"),
@@ -274,11 +270,10 @@ icons = helper.all_as_colr_glyph([
         ["symbol-unit"]
     ),
 
-    # TODO: Make custom, use same letter and color as Kotlin `value`?
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/debugger/value_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/debugger/value.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/expui/value_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/KotlinBaseResourcesIcons/org/jetbrains/kotlin/idea/icons/expui/value.svg"),
         },
         ["symbol-value"]
     ),

@@ -15,7 +15,7 @@ icons = helper.all_as_glyph([
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/close_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/close.svg"),
         },
-        ["close", "remove-close"]
+        ["close", "remove-close", "x"]
     ),
 
     ProductIcon(

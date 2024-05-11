@@ -4,6 +4,11 @@ icons = [
 
     # TODO: todo
 
+    icon.LanguageIdIcon(
+        "/customico/RIcons/icons/rFile.svg",
+        language_ids=["r"],
+    ),
+
     icon.FileIcon(
         "/customico/RIcons/icons/rFile.svg",
         file_extensions=["r"],

@@ -2,6 +2,22 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/CidrLangIcons/icons/expui/fileTypes/c_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/CidrLangIcons/icons/expui/fileTypes/c.svg"),
+        },
+        language_ids=["c"],
+    ),
+
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/CidrLangIcons/icons/expui/fileTypes/cpp_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/CidrLangIcons/icons/expui/fileTypes/cpp.svg"),
+        },
+        language_ids=["cpp"],
+    ),
+
     icon.FileIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/CidrLangIcons/icons/expui/fileTypes/c_dark.svg"),

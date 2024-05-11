@@ -2,6 +2,14 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/CMakeIcons/icons/expui/cuda_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/CMakeIcons/icons/expui/cuda.svg"),
+        },
+        language_ids=["cuda", "cuda-cpp"],
+    ),
+
     icon.FileIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/CidrLangIcons/icons/expui/fileTypes/cu_dark.svg"),

@@ -2,6 +2,14 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/PhpIcons/icons/expui/php_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/PhpIcons/icons/expui/php.svg"),
+        },
+        language_ids=["php"],
+    ),
+
     icon.FileIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/PhpIcons/icons/expui/php_dark.svg"),

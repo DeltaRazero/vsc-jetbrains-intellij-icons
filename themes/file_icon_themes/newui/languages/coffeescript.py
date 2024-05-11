@@ -2,9 +2,19 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
-    # TODO: Make custom icon
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/customico/CoffeescriptIcons/org/coffeescript/images/expui/coffeescript_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/customico/CoffeescriptIcons/org/coffeescript/images/expui/coffeescript.svg"),
+        },
+        language_ids=["coffeescript"],
+    ),
+
     icon.FileIcon(
-        "/jetbrains/CoffeescriptIcons/org/coffeescript/images/coffeescript_filetype.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/CoffeescriptIcons/org/coffeescript/images/expui/coffeescript_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/CoffeescriptIcons/org/coffeescript/images/expui/coffeescript.svg"),
+        },
         file_extensions=["coffee", "cson", "iced"],
     ),
 

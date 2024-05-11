@@ -2,6 +2,14 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/customico/PythonIcons/icons/com/jetbrains/python/expui/python_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/customico/PythonIcons/icons/com/jetbrains/python/expui/python.svg"),
+        },
+        language_ids=["python"],
+    ),
+
     icon.FileIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/PythonIcons/icons/com/jetbrains/python/expui/python_dark.svg"),

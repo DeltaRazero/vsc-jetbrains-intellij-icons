@@ -4,6 +4,11 @@ icons = [
 
     # TODO: todo
 
+    icon.LanguageIdIcon(
+        "/jetbrains/GoGeneratedIcons/icons/go.svg",
+        language_ids=["go"],
+    ),
+
     icon.FileIcon(
         "/customico/GoGeneratedIcons/icons/go_file.svg",
         file_extensions=["go"],

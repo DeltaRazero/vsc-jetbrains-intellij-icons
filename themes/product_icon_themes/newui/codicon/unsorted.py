@@ -168,15 +168,6 @@ icons = helper.all_as_glyph([
         ["error"]
     ),
 
-    # TODO: Make outline version
-    ProductIcon(
-        {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/extension_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/extension.svg"),
-        },
-        ["extensions"]
-    ),
-
     ProductIcon(
         {
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/show_dark.svg"),
@@ -198,7 +189,7 @@ icons = helper.all_as_glyph([
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/settings_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/settings.svg"),
         },
-        ["gear", "settings-gear"] # TODO: Report that 'settings' is bugged (CSS rule overrides font-family)
+        ["gear", "settings", "settings-gear"] # TODO: Report that 'settings' is bugged (CSS rule overrides font-family)
     ),
 
     ProductIcon(
@@ -212,8 +203,10 @@ icons = helper.all_as_glyph([
     # TODO: Maybe use mergeCallees runToCursor smartStepInto
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/actions/moveToButton_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/actions/moveToButton.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/run/smartStepInto_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/run/smartStepInto.svg"),
+            # ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/actions/moveToButton_dark.svg"),
+            # ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/actions/moveToButton.svg"),
             # ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/locate_dark.svg"),
             # ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/locate.svg"),
         },
@@ -324,7 +317,7 @@ icons = helper.all_as_glyph([
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/moreHorizontal_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/moreHorizontal.svg"),
         },
-        ["more"] # TODO: Report issue, isn't being set
+        ["more"] # BUG: Report issue, isn't being set
     ),
 
     ProductIcon(
@@ -380,7 +373,7 @@ icons = helper.all_as_glyph([
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/pin-modified_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/pin-modified.svg"),
         },
-        ["pinned-dirty"] # TODO: Report to VSCode issues, not working
+        ["pinned-dirty"]
     ),
 
     ProductIcon(
@@ -479,14 +472,6 @@ icons = helper.all_as_glyph([
         ["save"]
     ),
 
-    ProductIcon(
-        {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/search_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/search.svg"),
-        },
-        ["search"]
-    ),
-
     # TODO: Make custom icon, VSCode currently reuses the search icon
     ProductIcon(
         {
@@ -506,8 +491,8 @@ icons = helper.all_as_glyph([
 
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/toolwindow/coverage_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/toolwindow/coverage.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/shield_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/shield.svg"),
         },
         ["shield"]
     ),
@@ -521,9 +506,128 @@ icons = helper.all_as_glyph([
         ["source-control"]
     ),
 
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/toolwindow/settingSync_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/toolwindow/settingSync.svg"),
+        },
+        ["sync"]
+    ),
 
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/SettingsSyncIcons/icons/expui/statusDisabled_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/SettingsSyncIcons/icons/expui/statusDisabled.svg"),
+        },
+        ["sync-ignored"]
+    ),
 
+    # TODO: Custom icons for add and remove
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/branch_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/branch.svg"),
+        },
+        ["tag-add", "tag-remove", "tag"]
+    ),
 
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AppcodeIcons/icons/expui/target_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AppcodeIcons/icons/expui/target.svg"),
+        },
+        ["target"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/TerminalIcons/icons/expui/toolwindow/terminal_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/TerminalIcons/icons/expui/toolwindow/terminal.svg"),
+        },
+        ["terminal"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/toolwindow/toolWindowInternal_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/toolwindow/toolWindowInternal.svg"),
+        },
+        ["tools"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/delete_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/delete.svg"),
+        },
+        ["trash", "trashcan"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/triangleDown_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/triangleDown.svg"),
+        },
+        ["triangle-down"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/triangleLeft_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/triangleLeft.svg"),
+        },
+        ["triangle-left"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/triangleRight_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/triangleRight.svg"),
+        },
+        ["triangle-right"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/triangleUp_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/triangleUp.svg"),
+        },
+        ["triangle-up"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/toolwindow/hierarchy_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/toolwindow/hierarchy.svg"),
+        },
+        ["type-hierarchy", "type-hierarchy-sub"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/toolwindow/hierarchySuper_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/toolwindow/hierarchySuper.svg"),
+        },
+        ["type-hierarchy-super"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/unlocked_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/unlocked.svg"),
+        },
+        ["unlock"]
+    ),
+
+    ProductIcon(
+        {
+            # ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/scheduledEvent_dark.svg"),
+            # ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/scheduledEvent.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/run/testNotRunYet_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/run/testNotRunYet.svg"),
+        },
+        ["watch"]
+    ),
 
     ProductIcon(
         {
@@ -531,6 +635,51 @@ icons = helper.all_as_glyph([
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/inline/exactWords.svg"),
         },
         ["whole-word"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/inline/exactWords_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/inline/exactWords.svg"),
+        },
+        ["window"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/softWrap_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/softWrap.svg"),
+        },
+        ["word-wrap"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/toolwindow/wrench_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/toolwindow/wrench.svg"),
+        },
+        ["wrench", "wrench-subaction"]
+    ),
+
+    ProductIcon(
+        "/customico/JavaUltimateIcons/icons/cdi/newui/event_stroke.svg",
+        ["zap"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/image/zoomIn_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/image/zoomIn.svg"),
+        },
+        ["zoom-in"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/image/zoomOut_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/image/zoomOut.svg"),
+        },
+        ["zoom-out"]
     ),
 
 ])

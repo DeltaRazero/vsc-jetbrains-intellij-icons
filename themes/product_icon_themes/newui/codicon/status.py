@@ -7,7 +7,7 @@ icons = helper.all_as_glyph([
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/status/warningOutline_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/status/warningOutline.svg"),
         },
-        ["alert"]
+        ["alert", "warning"]
     ),
 
 ])
