@@ -23,7 +23,7 @@ class FileIconThemeIcon (__.Icon):
     def __init__(self, id: str | None) -> None:
         super().__init__()
 
-        self._id = id or __.util.generate_uid(10)
+        self._id = id or __.util.generate_uid(6)
         self._as_default = False
         return
 
@@ -36,9 +36,9 @@ class FileIconThemeIcon (__.Icon):
             case __.ColorTheme.DEFAULT_DARK:
                 id = f'{id}'
             case __.ColorTheme.LIGHT:
-                id = f'{id}-light'
+                id = f'{id}-lt'
             case __.ColorTheme.CONTRAST:
-                id = f'{id}-contrast'
+                id = f'{id}-ct'
         return id
 
 
