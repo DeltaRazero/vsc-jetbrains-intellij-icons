@@ -17,27 +17,18 @@ class SvgInlineStyleConverter:
     # :: PUBLIC FUNCTIONS :: #
 
     @staticmethod
-    def convert(fp: str):
+    def convert(xml: ElementTree.ElementTree):
 
-        ElementTree.register_namespace('', "http://www.w3.org/2000/svg")
+        xml_root = xml.getroot()
 
-        xml: ElementTree.ElementTree | None = None
-        with open(fp, 'r') as f:
-            xml = ElementTree.parse(f)
+        converter = SvgInlineStyleConverter()
 
-        if (xml):
-            xml_root = xml.getroot()
+        converter._parse_style(xml_root)
 
-            converter = SvgInlineStyleConverter()
+        for element in xml_root:
+            converter._convert_element(element)
 
-            converter._parse_style(xml_root)
-
-            for element in xml_root:
-                converter._convert_element(element)
-
-            SvgInlineStyleConverter._remove_style(xml_root)
-
-            xml.write(fp)
+        SvgInlineStyleConverter._remove_style(xml_root)
 
         return
 
@@ -111,25 +102,3 @@ class SvgInlineStyleConverter:
     @staticmethod
     def _get_tag(element: ElementTree.Element) -> str:
         return element.tag.rpartition('}')[-1]
-
-# *****************************************************************************
-
-def main() -> int:
-    try:
-
-        arg_parser = argparse.ArgumentParser()
-        arg_parser.add_argument("filepath")
-
-        args = arg_parser.parse_args()
-        SvgInlineStyleConverter.convert(args.filepath)
-
-    except:
-        traceback.print_exc()
-        return -1
-
-    return 0
-
-# *****************************************************************************
-
-if __name__=="__main__":
-    exit(main())

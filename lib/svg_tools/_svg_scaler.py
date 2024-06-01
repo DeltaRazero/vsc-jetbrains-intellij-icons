@@ -9,16 +9,11 @@ class SvgScaler:
     # :: PUBLIC FUNCTIONS :: #
 
     @staticmethod
-    def scale(fp: str, scale: float):
-
+    def scale(xml: ElementTree.ElementTree, scale: float):
         if (scale == 1.0):
             return
 
         ElementTree.register_namespace('', "http://www.w3.org/2000/svg")
-
-        xml: ElementTree.ElementTree | None = None
-        with open(fp, 'r') as f:
-            xml = ElementTree.parse(f)
 
         if (xml):
             xml_root = xml.getroot()
@@ -60,8 +55,6 @@ class SvgScaler:
                 width  * scale,
                 height * scale,
             ]])
-
-            xml.write(fp)
 
         return
 

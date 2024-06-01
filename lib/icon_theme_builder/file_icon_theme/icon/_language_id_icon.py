@@ -39,7 +39,7 @@ class LanguageIdIcon (__.FileIconThemeIcon):
 
     def __init__(self,
                  definition: _definition_t,
-                 languages_ids: list[str],
+                 language_ids: list[str],
                  icon_id: str | None=None,
     ):
         super().__init__(icon_id)
@@ -55,7 +55,7 @@ class LanguageIdIcon (__.FileIconThemeIcon):
                 definition = __.t.cast(dict[__.ColorTheme, LanguageIdIconDefinition], definition)
                 self._definitions = definition
 
-        self._language_ids = languages_ids
+        self._language_ids = language_ids
 
         return
 
@@ -80,8 +80,8 @@ class LanguageIdIcon (__.FileIconThemeIcon):
 
         match exporter:
             case __.exporter.FontExporter() | __.exporter.ColrFontExporter():
-                glyph_code = exporter.get_glyph_code()
                 exporter.add_icon(definition.language, self._get_properties())
+                glyph_code = exporter.get_glyph_code()
                 json_root["iconDefinitions"][id] = {
                     "fontCharacter": fr'\{glyph_code}',
                     "fontId": exporter.get_font_id(),

@@ -30,7 +30,7 @@ class ProductIcon (__.ProductIconThemeIcon):
 
     # :: PRIVATE ATTRIBUTES :: #
 
-    _definitionss : dict[__.ColorTheme, ProductIconDefinition]
+    _definitions : dict[__.ColorTheme, ProductIconDefinition]
     _icon_ids : __.t.List[str]
 
 
@@ -75,8 +75,8 @@ class ProductIcon (__.ProductIconThemeIcon):
 
         match exporter:
             case __.exporter.FontExporter() | __.exporter.ColrFontExporter():
-                glyph_code = exporter.get_glyph_code()
                 exporter.add_icon(definition.file, self._get_properties())
+                glyph_code = exporter.get_glyph_code()
                 for icon_id in self._icon_ids:
                     json["iconDefinitions"][icon_id] = {
                         "fontCharacter": fr'\{glyph_code}',

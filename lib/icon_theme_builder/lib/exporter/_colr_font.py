@@ -11,7 +11,7 @@ class __:
 
     from ._font import FontExporter
 
-    import svg_tools
+    from svg_tools import SvgTools
 
 # *****************************************************************************
 
@@ -49,8 +49,10 @@ class ColrFontExporter (__.FontExporter, __.abc.ABC):
         # Picosvg (used by nanoemoji in its backend) does not support style tags so convert them to inline style
         # properties
         def process_svg(svg: __.path.Path) -> None:
-            __.svg_tools.SvgInlineStyleConverter.convert(str(svg))
-            __.svg_tools.SvgFrameAdder.convert(str(svg))
+            (__.SvgTools.open(str(svg))
+                        .convert_style_to_inline()
+                        .add_frame()
+                        .write(str(svg)))
 
         with __.ThreadPoolExecutor(__.cpu_count()) as pool:
             pool.map(process_svg, self._svg_dir.glob('*.svg'))

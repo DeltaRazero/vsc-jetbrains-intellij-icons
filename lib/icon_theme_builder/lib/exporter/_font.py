@@ -13,7 +13,7 @@ class __:
 
     from icon_theme_builder.lib import util
 
-    import svg_tools
+    from svg_tools import SvgTools
 
 # *****************************************************************************
 
@@ -24,6 +24,10 @@ class FontExporter (__.Exporter):
     _font_id : str
 
     _current_glyph : int
+    _added_glyph   : int
+
+    # str: filepath, [int: glyph code, IconProperties]
+    _glyph_lut : dict[str, tuple[int, __.IconProperties]]
 
     START_GLYPH = 0xE000
 
@@ -37,7 +41,11 @@ class FontExporter (__.Exporter):
         super().__init__()
 
         self._font_id = __.util.generate_uid(5)
+
         self._current_glyph = self.START_GLYPH
+        self._added_glyph   = self.START_GLYPH
+        self._glyph_lut     = {}
+
         self._copy_dir = __.path.Path(f'/tmp/glyph_fonts/{self._font_id}')
 
         if (self._copy_dir.exists()):
@@ -53,22 +61,31 @@ class FontExporter (__.Exporter):
     # :: PUBLIC METHODS :: #
 
     def add_icon(self, icon_fp: str, properties: __.IconProperties) -> None:
-        """Returns glyph codepoint."""
-        glyph = self.get_glyph_code()
-        self._current_glyph += 1
 
-        icon_file = self._fp(icon_fp)
-        if not icon_file.exists: raise RuntimeError("File does not exist.")
-        if icon_file.suffix != ".svg": raise RuntimeError("File must be SVG.")
+        # Check if icon was already added based on filepath so we can dedupe and save space a bit
+        if (icon_fp in self._glyph_lut and properties == self._glyph_lut[icon_fp][1]):
+            self._added_glyph = self._glyph_lut[icon_fp][0]
+        # New icon
+        else:
+            self._added_glyph = self._current_glyph
+            self._current_glyph += 1
+            formatted_glyph = self.get_glyph_code()
 
-        # Append unicode to filepath and copy file to temp dir
-        temp_file_svg = (self._svg_dir / f'u{glyph}.svg')
-        __.shutil.copy(
-            icon_file,
-            temp_file_svg,
-        )
+            icon_file = self._fp(icon_fp)
+            if not icon_file.exists: raise RuntimeError("File does not exist.")
+            if icon_file.suffix != ".svg": raise RuntimeError("File must be SVG.")
 
-        __.svg_tools.SvgScaler.scale(str(temp_file_svg), properties.scale)
+            # Append unicode to filepath and copy file to temp dir
+            temp_file_svg = (self._svg_dir / f'u{formatted_glyph}.svg')
+            __.shutil.copy(
+                icon_file,
+                temp_file_svg,
+            )
+
+            if (properties.scale != 1.0):
+                (__.SvgTools.open(str(temp_file_svg))
+                            .scale({'scale': properties.scale})
+                            .write(str(temp_file_svg)))
 
         return
 
@@ -78,8 +95,8 @@ class FontExporter (__.Exporter):
 
 
     def get_glyph_code(self) -> str:
-        """Gets the current glyph code counter value. You should call method this before using `add_icon()`."""
-        return f'{self._current_glyph:x}'.upper() # Format as HEX (no leading '0x')
+        """Gets the glyph code counter value of the added icon. You should call method this after using `add_icon()`."""
+        return f'{self._added_glyph:x}'.upper() # Format as HEX (no leading '0x')
 
 
     def consolidate(self, dist_dir: __.path.Path):
@@ -98,7 +115,10 @@ class FontExporter (__.Exporter):
             # Use picosvg to simplify and also take care of converting paths that use the 'evenodd' fill-rule to normal
             # fill paths
             # NOTE: picosvg does not support style tags so convert them to inline style properties
-            __.svg_tools.SvgInlineStyleConverter.convert(str(svg))
+            (__.SvgTools.open(str(svg))
+                        .convert_style_to_inline()
+                        .write(str(svg)))
+
             cmd = f'picosvg "{svg}" --output_file="{svg}"'
             print(cmd)
             with __.os.popen(cmd) as picosvg_p:

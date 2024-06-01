@@ -47,7 +47,7 @@ class IconThemeBuilder (__.abc.ABC):
 
     # :: PRIVATE ATTRIBUTES :: #
 
-    _icons  : list[__.Icon]
+    _icons : list[__.Icon]
 
 
     # :: PROTECTED ATTRIBUTES :: #
