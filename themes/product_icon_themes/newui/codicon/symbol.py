@@ -154,7 +154,7 @@ icons = helper.all_as_colr_glyph([
         ["symbol-module, symbol-namespace", "symbol-package"]
     ),
 
-    # TODO: Make replace with a custom icon
+    # TODO: Make replace with a custom icon, use notDefined, fileTypes/unknown, or use scala/untyped
     ProductIcon(
         {
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/RubyIcons/icons/expui/ruby/nodes/notDefined_dark.svg"),

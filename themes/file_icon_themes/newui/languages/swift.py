@@ -24,6 +24,4 @@ icons = [
         file_extensions=["map"],
     ),
 
-    # TODO: More
-
 ]

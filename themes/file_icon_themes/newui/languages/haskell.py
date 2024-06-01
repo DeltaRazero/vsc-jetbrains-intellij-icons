@@ -2,11 +2,19 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
-    # TODO: Make custom icon
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/customico/HaskellIcons/icons/expui/haskell_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/customico/HaskellIcons/icons/expui/haskell.svg"),
+        },
+        language_ids=["haskell"],
+    ),
 
-    # TODO: Make dark variant?
     icon.FileIcon(
-        "/customico/HaskellIcons/icons/haskell_file.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/HaskellIcons/icons/expui/haskell_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/HaskellIcons/icons/expui/haskell.svg"),
+        },
         file_extensions=["hs", "lhs"],
     ),
 

@@ -4,15 +4,20 @@ icons = [
 
     icon.FileIcon(
         "/jetbrains/AllIcons/wizard/vscode.svg",
-        file_extensions=[".code-workspace", ".vscodeignore"],
+        file_extensions=["code-workspace", "vscodeignore"],
     ),
 
-    # TODO: Make custom icon
     icon.FolderIcon(
-        (
-            "/customico/VSCodeIcons/vscodeFolder.svg",
-            "/customico/VSCodeIcons/vscodeFolder-open.svg",
-        ),
+        {
+            ColorTheme.DEFAULT_DARK: icon.FolderIconDefinition(
+                                        "/customico/VSCodeIcons/expui/vscodeFolder_dark.svg",
+                                        "/customico/VSCodeIcons/expui/vscodeFolder_dark-open.svg",
+                                    ),
+            ColorTheme.LIGHT       : icon.FolderIconDefinition(
+                                        "/customico/VSCodeIcons/expui/vscodeFolder.svg",
+                                        "/customico/VSCodeIcons/expui/vscodeFolder-open.svg",
+                                    ),
+        },
         [".vscode"],
     ),
 

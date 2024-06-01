@@ -2,10 +2,14 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
-    # TODO: Wait for expui icon or make customico
-    # icon.FileIcon(
-    #     "/jetbrains/AllIcons/fileTypes/htaccess.svg",
-    #     file_extensions=["htaccess"],
-    # ),
+    icon.LanguageIdIcon(
+        "/customico/AllIcons/expui/fileTypes/htaccess.svg",
+        ["apacheconf"]
+    ),
+
+    icon.FileIcon(
+        "/customico/AllIcons/expui/fileTypes/htaccess.svg",
+        file_extensions=["htaccess", "htgroups", "htpasswd"],
+    ),
 
 ]

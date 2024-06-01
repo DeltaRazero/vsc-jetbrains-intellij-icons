@@ -9,7 +9,7 @@ icons = helper.all_as_colr_glyph([
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/breakpoints/breakpoint_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/breakpoints/breakpoint.svg"),
         },
-        ["debug-breakpoint", "debug-hint"]
+        ["debug-breakpoint", "debug-hint"] # VSCode automatically reduces the transparency of debug-hint
     ).scaled(0.65),
 
     ProductIcon(

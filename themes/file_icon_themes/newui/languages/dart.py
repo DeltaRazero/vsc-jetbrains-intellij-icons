@@ -2,20 +2,18 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
-    # TODO: Make custom icon?
-
     icon.LanguageIdIcon(
         {
-            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/DartIcons/icons/dart_file_dark.svg"),
-            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/DartIcons/icons/dart_file.svg"),
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/customico/DartIcons/icons/expui/dart_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/customico/DartIcons/icons/expui/dart.svg"),
         },
         language_ids=["dart"],
     ),
 
     icon.FileIcon(
         {
-            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/DartIcons/icons/dart_file_dark.svg"),
-            ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/DartIcons/icons/dart_file.svg"),
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/DartIcons/icons/expui/dart_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/DartIcons/icons/expui/dart.svg"),
         },
         file_extensions=["dart"],
     ),

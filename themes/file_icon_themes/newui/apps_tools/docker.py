@@ -2,6 +2,14 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/DockerIcons/icons/expui/docker_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/DockerIcons/icons/expui/docker.svg"),
+        },
+        ["dockerfile"]
+    ),
+
     icon.FileIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/DockerIcons/icons/expui/docker_dark.svg"),
@@ -11,13 +19,21 @@ icons = [
         file_extensions=["dockerfile"],
     ),
 
-    # TODO: Custom icon
+    # TODO: Custom icon, use mavenIgnored
     icon.FileIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/DockerIcons/icons/expui/dockerComposeScaledServiceStopped_dark.svg"),
             ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/DockerIcons/icons/expui/dockerComposeScaledServiceStopped.svg"),
         },
         file_extensions=["dockerignore"],
+    ),
+
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/DockerIcons/icons/expui/dockerCompose_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/DockerIcons/icons/expui/dockerCompose.svg"),
+        },
+        ["dockercompose"]
     ),
 
     icon.FileIcon(

@@ -4,6 +4,14 @@ icons = [
 
     # TODO: Graphql
 
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/AllIcons/expui/fileTypes/json_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/AllIcons/expui/fileTypes/json.svg"),
+        },
+        ["json", "jsonc", "jsonl"]
+    ),
+
     icon.FileIcon(
         {
             ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/AllIcons/expui/fileTypes/json_dark.svg"),
@@ -22,15 +30,29 @@ icons = [
         file_extensions=["schema.json", "jschema"],
     ),
 
-    # FIXME: Wait for expui icon?
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/TomlIcons/icons/newui/toml_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/TomlIcons/icons/newui/toml.svg"),
+        },
+        ["toml"]
+    ),
+
     icon.FileIcon(
         {
-            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/TomlIcons/icons/toml-file_dark.svg"),
-            ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/TomlIcons/icons/toml-file.svg"),
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/TomlIcons/icons/newui/toml_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/TomlIcons/icons/newui/toml.svg"),
         },
         file_extensions=["toml"],
     ),
 
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/AllIcons/expui/fileTypes/xml_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/AllIcons/expui/fileTypes/xml.svg"),
+        },
+        ["xml"]
+    ),
 
     icon.FileIcon(
         {
@@ -38,6 +60,14 @@ icons = [
             ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/AllIcons/expui/fileTypes/xml.svg"),
         },
         file_extensions=["xml", "plist", "iml", "xquery", "tmLanguage"],
+    ),
+
+    icon.LanguageIdIcon(
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/AllIcons/expui/fileTypes/yaml_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/AllIcons/expui/fileTypes/yaml.svg"),
+        },
+        ["yml", "yaml"]
     ),
 
     icon.FileIcon(

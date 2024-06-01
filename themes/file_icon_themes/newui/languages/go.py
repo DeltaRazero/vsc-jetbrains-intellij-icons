@@ -2,18 +2,23 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
-    # TODO: todo
-
     icon.LanguageIdIcon(
-        "/jetbrains/GoGeneratedIcons/icons/go.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/customico/GoGeneratedIcons/icons/expui/goFile_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/customico/GoGeneratedIcons/icons/expui/goFile.svg"),
+        },
         language_ids=["go"],
     ),
 
     icon.FileIcon(
-        "/customico/GoGeneratedIcons/icons/go_file.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/GoGeneratedIcons/icons/expui/goFile_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/GoGeneratedIcons/icons/expui/goFile.svg"),
+        },
         file_extensions=["go"],
     ),
 
+    # TODO: todo
     icon.FolderIcon(
         (
             "/jetbrains/GoGeneratedIcons/icons/vendor.svg",

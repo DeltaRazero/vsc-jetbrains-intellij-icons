@@ -34,10 +34,6 @@ icons = helper.all_as_glyph([
         ["arrow-up"]
     ),
 
-    # TODO: arrow-circle
-
-    # TODO: arrow-small
-
     ProductIcon(
         {
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/swap_dark.svg"),
@@ -76,6 +72,38 @@ icons = helper.all_as_glyph([
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/chevronUp.svg"),
         },
         ["chevron-up"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/triangleDown_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/triangleDown.svg"),
+        },
+        ["triangle-down"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/triangleLeft_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/triangleLeft.svg"),
+        },
+        ["triangle-left"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/triangleRight_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/triangleRight.svg"),
+        },
+        ["triangle-right"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/general/triangleUp_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/general/triangleUp.svg"),
+        },
+        ["triangle-up"]
     ),
 
 ])

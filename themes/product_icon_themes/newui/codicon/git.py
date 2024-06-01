@@ -60,6 +60,13 @@ icons = helper.all_as_glyph([
         ["git-merge"]
     ),
 
-
+    # TODO: Custom icons for add and remove
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/branch_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/branch.svg"),
+        },
+        ["tag-add", "tag-remove", "tag"]
+    ),
 
 ])

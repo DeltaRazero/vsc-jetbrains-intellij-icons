@@ -2,15 +2,19 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
-    # TODO: Make custom icon
-
     icon.LanguageIdIcon(
-        "/jetbrains/JetgroovyIcons/icons/groovy/groovy_16x16.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/jetbrains/JetgroovyIcons/icons/groovy/newui/groovy_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/jetbrains/JetgroovyIcons/icons/groovy/newui/groovy.svg"),
+        },
         language_ids=["groovy"],
     ),
 
     icon.FileIcon(
-        "/jetbrains/JetgroovyIcons/icons/groovy/groovyFile.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/jetbrains/JetgroovyIcons/icons/groovy/newui/groovy_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/jetbrains/JetgroovyIcons/icons/groovy/newui/groovy.svg"),
+        },
         file_extensions=["groovy"],
     ),
 

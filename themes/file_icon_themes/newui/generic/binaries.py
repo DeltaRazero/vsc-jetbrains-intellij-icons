@@ -2,15 +2,19 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
-    # TODO: Make custom icon
     icon.FileIcon(
-        "/customico/AllIcons/fileTypes/libraryDynamic.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/AllIcons/expui/fileTypes/libraryDynamic_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/AllIcons/expui/fileTypes/libraryDynamic.svg"),
+        },
         file_extensions=["so", "dll", "dylib"],
     ),
 
-    # TODO: Make custom icon
     icon.FileIcon(
-        "/customico/AllIcons/fileTypes/libraryStatic.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/AllIcons/expui/fileTypes/libraryStatic_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/AllIcons/expui/fileTypes/libraryStatic.svg"),
+        },
         file_extensions=["a", "lib"],
     ),
 

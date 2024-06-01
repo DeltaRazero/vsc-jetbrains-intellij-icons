@@ -13,12 +13,17 @@ icons = [
                     ".gitkeep", "git-history"]
     ),
 
-    # TODO: Make custom icon
     icon.FolderIcon(
-        (
-            "/customico/GitIcons/gitFolder.svg",
-            "/customico/GitIcons/gitFolder-open.svg",
-        ),
+        {
+            ColorTheme.DEFAULT_DARK: icon.FolderIconDefinition(
+                                        "/customico/GitIcons/expui/gitFolder_dark.svg",
+                                        "/customico/GitIcons/expui/gitFolder_dark-open.svg",
+                                    ),
+            ColorTheme.LIGHT       : icon.FolderIconDefinition(
+                                        "/customico/GitIcons/expui/gitFolder.svg",
+                                        "/customico/GitIcons/expui/gitFolder-open.svg",
+                                    ),
+        },
         [".git", "githooks", ".githooks", "submodules", ".submodules"]
     ),
 

@@ -10,14 +10,6 @@ icons = helper.all_as_glyph([
         ["compare-changes"]
     ),
 
-    ProductIcon(
-        {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/general/close_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/general/close.svg"),
-        },
-        ["close"]
-    ),
-
     # TODO: Or use vcs.changes
     ProductIcon(
         {

@@ -2,27 +2,33 @@ from icon_theme_builder.file_icon_theme import *
 
 icons = [
 
-    # TODO: todo
-
     icon.LanguageIdIcon(
-        "/customico/RIcons/icons/rFile.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.LanguageIdIconDefinition("/customico/RIcons/icons/expui/r_dark.svg"),
+            ColorTheme.LIGHT       : icon.LanguageIdIconDefinition("/customico/RIcons/icons/expui/r.svg"),
+        },
         language_ids=["r"],
     ),
 
     icon.FileIcon(
-        "/customico/RIcons/icons/rFile.svg",
-        file_extensions=["r"],
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/RIcons/icons/expui/r_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/RIcons/icons/expui/r.svg"),
+        },
+        file_extensions=[
+            "r",
+            "rdata",
+            "rds",
+            "rda"
+        ],
     ),
 
     icon.FileIcon(
-        "/jetbrains/RIcons/icons/fileTypes/rMarkdown.svg",
+        {
+            ColorTheme.DEFAULT_DARK: icon.FileIconDefinition("/customico/RIcons/icons/expui/rMarkdown_dark.svg"),
+            ColorTheme.LIGHT       : icon.FileIconDefinition("/customico/RIcons/icons/expui/rMarkdown.svg"),
+        },
         file_extensions=["rmd"],
     ),
-
-    icon.FileIcon(
-        "/customico/RIcons/icons/r-bigger.svg",
-        file_extensions=["rdata", "rds", "rda"],
-    ),
-
 
 ]

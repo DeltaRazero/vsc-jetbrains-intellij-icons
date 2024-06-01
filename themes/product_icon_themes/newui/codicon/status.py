@@ -10,4 +10,29 @@ icons = helper.all_as_glyph([
         ["alert", "warning"]
     ),
 
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/status/errorOutline_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/status/errorOutline.svg"),
+        },
+        ["error"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/status/errorOutline_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/status/errorOutline.svg"),
+        },
+        ["error-small"]
+    ).scaled(0.75),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/status/infoOutline_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/status/infoOutline.svg"),
+        },
+        ["info"]
+    ),
+
+
 ])

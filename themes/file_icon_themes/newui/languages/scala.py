@@ -18,6 +18,4 @@ icons = [
         file_extensions=["sc", "scala"],
     ),
 
-    # TODO: More...
-
 ]

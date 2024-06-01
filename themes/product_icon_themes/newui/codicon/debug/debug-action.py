@@ -60,6 +60,14 @@ icons = helper.all_as_colr_glyph([
 
     ProductIcon(
         {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/GoGeneratedIcons/icons/expui/resumeReverse_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/GoGeneratedIcons/icons/expui/resumeReverse.svg"),
+        },
+        ["debug-reverse-continue-small"]
+    ).scaled(0.75),
+
+    ProductIcon(
+        {
             ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/run/run_dark.svg"),
             ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/run/run.svg"),
         },
@@ -88,6 +96,14 @@ icons = helper.all_as_colr_glyph([
             ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/run/stepOver-colored.svg"),
         },
         ["debug-step-over"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/customico/AllIcons/expui/run/stepBack_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/customico/AllIcons/expui/run/stepBack.svg"),
+        },
+        [" debug-step-back"]
     ),
 
     ProductIcon(

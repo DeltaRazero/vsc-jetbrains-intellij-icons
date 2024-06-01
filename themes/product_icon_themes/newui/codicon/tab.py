@@ -18,13 +18,25 @@ icons = helper.all_as_glyph([
         ["search"]
     ),
 
-    # TODO: Make outline version
     ProductIcon(
         {
-            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/extension_dark.svg"),
-            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/extension.svg"),
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/connector_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/DatabaseIcons/icons/expui/connector.svg"),
         },
         ["extensions"]
+    ),
+
+    ProductIcon(
+        {
+            ColorTheme.DEFAULT_DARK: ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/vcs_dark.svg"),
+            ColorTheme.LIGHT       : ProductIconDefinition("/jetbrains/AllIcons/expui/vcs/vcs.svg"),
+        },
+        ["source-control"]
+    ),
+
+    ProductIcon(
+        "/customico/AllIcons/expui/toolwindow/referencesScan_stroke.svg",
+        ["references"]
     ),
 
 ])
